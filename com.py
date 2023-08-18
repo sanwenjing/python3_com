@@ -156,6 +156,8 @@ class Config:
         self.cf.set(field, key, value)
         self.cf.write(open(self.path,'w'))
 
+def useAliyunSource():
+  os.system("pip config set global.index-url https://mirrors.aliyun.com/pypi/simple")
 
 if __name__=="__main__":
          #log1=log();
