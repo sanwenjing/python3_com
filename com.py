@@ -3,7 +3,7 @@
 import os,sys,time,random;
 import datetime as dt;
 import platform as pf;
-import ConfigParser  #ini
+import configparser  #ini
 
 
 
@@ -116,7 +116,7 @@ def swipe(DevID):
 #run cmd bg
 def bgrun(cmd):
   cmdline="nohup {cmd}>/dev/null 2>&1 &".format(cmd=cmd)
-  print cmdline
+  print(cmdline)
   os.system(cmdline)
 
 def isrun(progName):
@@ -139,7 +139,7 @@ def gbkToUtf8(text):
 class Config:
     def __init__(self, path=os.path.join(os.path.dirname(os.path.realpath(__file__)),getFileName()+".ini")):
         self.path = path
-        self.cf = ConfigParser.ConfigParser()
+        self.cf = configparser.ConfigParser()
         self.cf.read(self.path)
     def get(self,key,field="system"):
         result = ""
@@ -163,5 +163,5 @@ if __name__=="__main__":
          conf1=Config();
          #print conf1.getFd();
          conf1.set("test","123456nihao")
-         print conf1.get("test")
+         print(conf1.get("test"))
          #print getHtml("www.baidu.com")         
