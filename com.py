@@ -159,6 +159,13 @@ class Config:
 def useAliyunSource():
   os.system("pip config set global.index-url https://mirrors.aliyun.com/pypi/simple")
 
+
+def mkDir(dirName):
+# 检查input文件夹是否存在
+  if not os.path.exists(dirName):
+    os.makedirs(dirName)
+
+
 if __name__=="__main__":
          #log1=log();
          #log1.w("test");
@@ -166,4 +173,5 @@ if __name__=="__main__":
          #print conf1.getFd();
          conf1.set("test","123456nihao")
          print(conf1.get("test"))
+         mkDir(".\\input")
          #print getHtml("www.baidu.com")         
