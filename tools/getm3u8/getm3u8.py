@@ -1,7 +1,11 @@
 # -*- coding:utf-8 -*-
-from selenium import webdriver #pip uninstall selenium  &&  pip install selenium==2.48.0
+#  python getm3u8.py http://yourtargeturl player.url
+
+
+from selenium import webdriver
 from com import getArgs
 targetUrl=getArgs(1)
+targetVal=getArgs(2)
 timeout=20
 #print targetUrl
 driver = webdriver.PhantomJS()
@@ -12,7 +16,7 @@ try:
   driver.get(targetUrl)
 except:
   driver.execute_script('window.stop()')
-num = driver.execute_script("return player_aaaa.url")
+num = driver.execute_script("return "+targetVal)
 #num = driver.execute_script("return new Date().getTime()")
 print(num)
 driver.quit()
