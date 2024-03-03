@@ -169,7 +169,13 @@ def download(fileurl,title,dir="download\\"):#title如 XXX.mp4
   file_content = requests.get(url=fileurl).content
   with open(dir + title, mode='wb') as f:
     f.write(file_content)
-
+    
+def getCmdText(cmd): #取命令行运行结果
+  r = os.popen(cmd)
+  res=r.read()
+  r.close()
+  return res
+  
 if __name__=="__main__":
          #log1=log();
          #log1.w("test");
@@ -179,6 +185,6 @@ if __name__=="__main__":
          #print(conf1.get("test"))
          #mkDir(".\\input")
          #useAliyunSource()
-         download("https://vdept3.bdstatic.com/mda-qc20br3dig0x0bg5/sc/cae_h264/1709424976869467322/mda-qc20br3dig0x0bg5.mp4?v_from_s=hkapp-haokan-nanjing&auth_key=1709438932-0-0-aadb6d7851b811493c024a27c958dcf6&bcevod_channel=searchbox_feed&cr=2&cd=0&pd=1&pt=3&logid=0532247206&vid=10254206589342494431&klogid=0532247206&abtest=116096_1","荣庵老师为粉丝、学员讲解 ——享荫福厚 才学富足 荣庵老师 婚期择吉 易学 传承和弘扬民族文化 弘扬传统文化 荣庵讲易 十二生肖 智慧人生"+".mp4")
-
+         #download("https://vdept3.bdstatic.com/mda-qc20br3dig0x0bg5/sc/cae_h264/1709424976869467322/mda-qc20br3dig0x0bg5.mp4?v_from_s=hkapp-haokan-nanjing&auth_key=1709438932-0-0-aadb6d7851b811493c024a27c958dcf6&bcevod_channel=searchbox_feed&cr=2&cd=0&pd=1&pt=3&logid=0532247206&vid=10254206589342494431&klogid=0532247206&abtest=116096_1","荣庵老师为粉丝、学员讲解 ——享荫福厚 才学富足 荣庵老师 婚期择吉 易学 传承和弘扬民族文化 弘扬传统文化 荣庵讲易 十二生肖 智慧人生"+".mp4")
+         print(getCmdText("dir"))
          #print getHtml("www.baidu.com")         
