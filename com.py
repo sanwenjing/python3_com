@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import os,sys,time,random,requests
+import os,sys,time,random,requests,re
 import datetime as dt;
 import platform as pf;
 import configparser  #ini
@@ -175,6 +175,14 @@ def getCmdText(cmd): #取命令行运行结果
   res=r.read()
   r.close()
   return res
+
+
+def getChinese(text): #取文本中所有汉字,用于文件名
+  chinese_pattern = re.compile("[\u4e00-\u9fa5]")
+  chinese_chars = chinese_pattern.findall(text)
+  chinese_text = ''.join(chinese_chars)
+  return chinese_text
+
   
 if __name__=="__main__":
          #log1=log();
